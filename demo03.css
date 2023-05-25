@@ -1,0 +1,170 @@
+/* 总体布局 */
+body{
+    background-color: rgb(250, 231, 231);
+}
+.wrap{
+    width: 70%;
+    height: 640px;
+    border: 1px solid rgb(190, 168, 168);
+    background-color: rgb(249, 221, 221);
+    border-radius: 8px;
+    margin: 50px auto;
+}
+/* 顶部搜索歌曲区域 */
+.search_bar{
+    width: 100%;
+    height: 55px;
+    background-color: rgb(198, 47, 47);
+    border-radius: 8px 8px 0px 0px;
+}
+.search_bar img{
+    margin-left: 13px;
+}
+.search_bar input{
+    background-color: rgb(161, 72, 72);
+    border-radius: 9px;
+    float: right;
+    margin: 13px 13px;
+}
+/* 歌曲主题部分 */
+.center_con{
+    width: 100%;
+
+}
+/* 搜索歌曲列表部分 */
+.song_wrapper{
+    float: left;
+    width: 28%;
+    height: 530px;
+    overflow: auto;
+}
+.song_list li{
+    width: 250px;
+    height: auto;
+    list-style: none;
+    margin: 10px;
+    
+}
+.song_list li button{
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(244, 78, 78);
+    margin-right: 5px;
+    border-radius: 4px;
+    color: rgb(237, 110, 112);
+    line-height: 10px;
+    padding-right: 20px;
+    font-size: 18px;
+    background-color: rgb(249, 221, 221);
+}
+.song_list li span{
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(244, 78, 78);
+    margin-left: 20px;
+    border-radius: 8px;
+    color: rgb(237, 110, 112);
+    line-height: 10px;
+    padding-right: 6px;
+    font-size: 18px;
+    background-color: rgb(249, 221, 221);
+}
+/* 歌曲信息容器 */
+.player_con{
+    float: left;
+    width: 40%;
+    height: 515px;
+    margin-top: 0;
+    border-left: 2px solid rgb(126, 123, 123);
+    border-right: 2px solid rgb(126, 123, 123);
+}
+/* 封面 */
+.player_con div{
+    width: 200px;
+    height: 200px;
+    margin: 80px auto;
+    border: 40px solid rgb(79, 69, 69);
+    border-radius: 50%;
+}
+.player_con div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-style: none;
+    
+}
+/* 评论容器 */
+.comment_wrapper{
+    float: left;
+}
+.comment_wrapper h3{
+    float: left;
+    margin-left: 20px;
+}
+.comment_wrapper .comment_list{
+    width: 100%;
+    overflow: auto;
+}
+.comment_wrapper .comment_list dl{
+    width: 200px;
+}
+.comment_wrapper .comment_list dl dt{
+    width: 20px;
+    height: 20px;
+    border-style: none;
+}
+.comment_wrapper .comment_list dl dt img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.comment_wrapper .comment_list .name{
+    width: 100%;
+    color: rgb(10, 10, 11);
+    font-weight: bolder;
+}
+.comment_wrapper .comment_list details{
+    width: 100%;
+}
+/* 播放区域 */
+.audio_con{
+    float: left;
+    width: 100%;
+    bottom: 0px;
+}
+.audio_con audio{
+    width: 100%;
+} 
+/* 播放mv */
+.video_con{
+    width: 600px;
+    height: 400px;
+}
+.video_con video{
+    position: fixed;
+    width: 600px;
+    height: 400px;
+    left: 50%;
+    top:150px;
+    /* margin-top: 100px; */
+    transform: translateX(-50%);
+    z-index: 990;
+}
+ .mask{
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    top:150px;
+    left: 72%;
+    font-weight: bolder;
+    text-align: center;
+    padding-right: 13px;
+    border-radius: 4px;
+    font-size: 18px;
+    background-color: rgb(226, 197, 197);
+    transform: translateX(-50%);
+    z-index: 990;
+}
+video{
+    object-fit: contain;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地教室管理</title>
+    <link rel="stylesheet" href="lab01.css" type="text/css">
+</head>
+<body>
+    <!-- 页面代码部分 -->
+    <div id="guan_li">
+        <h1>本地教室管理系统</h1>
+        <!-- 隐藏的弹窗部分 -->
+        <div id="yin_area" v-show="isShow2">
+            <form action="">
+                <label for="">修改教室名称为：</label>
+                <input type="text"> <br>
+                <label for="">修改机构名称为：</label>
+                <input type="text"> <br>
+                <label for="">修改地址为：</label>
+                <input type="text"> <br>
+                <label for="">修改教学楼名称为：</label>
+                <input type="text"> <br>
+                <label for="">修改座位数为：</label>
+                <input type="text"> <br>
+                <input type="submit" value="提交">
+            </form>
+        </div>
+        <!-- 头部栏部分 -->
+        <div id="header">
+            
+            <!-- 输入框部分 -->
+            <div id="input_area" v-show="isShow">
+                <span>教室名称</span>
+                <input type="text" class="in" v-model="jiaos_name1">
+                <span>机构</span>
+                <input type="text" class="in" v-model="jigou_name1">
+                <span>地址</span>
+                <input type="text" class="in" v-model="adds_name1">
+                <span>教学楼</span>
+                <input type="text" class="in" v-model="shangke_add1">
+                <span>座位</span>
+                <input type="text" class="in" v-model="zuow_num1">
+            </div>
+            <input type="submit" value="增加" id="sub_btn" @click="addL">
+        </div>
+        <!-- 教室列表部分 -->
+        <table id="table_list">
+            <tr>
+                <th>教室名称</th>
+                <th>所在机构</th>
+                <th>详细地址</th>
+                <th>上课地点</th>
+                <th>座位数量</th>
+                <th>操作</th>
+            </tr>
+            <tr class="mebox">
+                <td v-for="(item,index) in list1">{{item}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+            <tr class="mebox">
+                <td v-for="(item,index) in list2">{{item}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+            <tr class="mebox">
+                <td v-for="(item,index) in list3">{{item}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+            <tr class="mebox">
+                <td v-for="(item,index) in list4">{{item}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+            <tr class="mebox">
+                <td v-for="(item,index) in list5">{{item}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+            <tr class="mebox">
+                <td v-for="(item,index) in list6">{{item}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+            <tr class="mebox">
+                <td v-for="(item,index) in list7">{{item}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+            <!-- 实现增加数据功能 -->
+            <tr v-for="(item,index) in list" class="mebox">
+                <td >{{item.jiaos_name}}</td>
+                <td >{{item.jigou_name}}</td>
+                <td >{{item.adds_name}}</td>
+                <td >{{item.shangke_add}}</td>
+                <td >{{item.zuow_num}}</td>
+                <td class="link_yang"><button class="xiu_ben" @click="tipFunction">✎修改 |</button><button @click="remove">✖删除</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+  <!-- vue.js部分 -->
+  <script>
+    var dolist = new Vue({
+        el:"#guan_li",
+        data:{
+            isShow:false,
+            IsIF:true,
+            isShow1:true,
+            isShow2:false,
+            list:[{
+                jiaos_name:"室外",
+                jigou_name:"xxx",
+                adds_name:"广东省珠海市",
+                shangke_add:"木铎楼",
+                zuow_num:"123"
+            }],
+            list1:["112","xxx","广东省珠海市","木铎楼","123"],
+            list2:["444","xxx","广东省珠海市","木铎楼","20"],
+            list3:["集成测试教室","xxx","广东省珠海市","木铎楼","56"],
+            list4:["50","xxx","广东省珠海市6666","木铎楼","0"],
+            list5:["室外","xxx","广东省珠海市","木铎楼","10000"],
+            list6:["555","xxx","广东省珠海市","木铎楼","12"],
+            list7:["222","xxx","广东省珠海市","木铎楼","123"],
+            jiaos_name1:"",
+            jigou_name1:"",
+            adds_name1:"",
+            shangke_add1:"",
+            zuow_num1:""
+
+        },
+        methods:{
+            
+
+            addL:function(){
+                this.isShow = !this.isShow;
+                this.isShow1 = true;
+                if(this.isShow==false && (this.jiaos_name1!="" ||this.jigou_name1!="" ||this.adds_name1!="" ||this.shangke_add1!="" ||
+                this.zuow_num1!=""  )){
+                    this.list.push({
+                    jiaos_name:this.jiaos_name1,
+                    jigou_name:this.jigou_name1,
+                    adds_name:this.adds_name1,
+                    shangke_add:this.shangke_add1,
+                    zuow_num:this.zuow_num1
+                })
+                };
+                this.jiaos_name1="";
+                this.jigou_name1="";
+                this.adds_name1="";
+                this.shangke_add1="";
+                this.zuow_num1=""
+
+            },
+            tipFunction:function(){
+                this.isShow2=true;
+            },
+            remove:function(){
+                var me_box = document.querySelector('.mebox');
+                if(me_box){
+                    me_box.parentNode.removeChild(me_box);
+                }
+            }
+        }
+    })
+  </script>
+
+
+</body>
+</html>
